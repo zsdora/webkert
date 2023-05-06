@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "webrepjegy2": {
+      "hosting": {
+        "webkert": [
+          "webrepjegy2"
+        ]
+      }
+    },
+    "webfejl-vegleges": {
+      "hosting": {
+        "webkert": [
+          "webfejl-vegleges"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "webfejl-vegleges"
+  }
+}

@@ -1,0 +1,101 @@
+<div class="banner">
+  <div class="content">
+      <h1 class="mb-3">Legjobb jegyárak <br/> csak nálunk</h1>
+      </div>
+</div>
+<!-- step  -->
+<div class="container mt-5 mb-5">
+  <h1 class="text-center">Hogyan találj <span class="highlight">kedvező ajánlatokat</span></h1>
+  <div class="row mt-5" style=" align-items: center;">
+      <!-- one  -->
+      <div class="col-lg-4 mt-2">
+          <div class="stepBox">
+              <h1>1</h1>
+              <p>Válassz jegyet</p>
+          </div>
+      </div>
+<!-- two -->
+<div class="col-lg-4 mt-2">
+  <div class="stepBox">
+      <h1>2</h1>
+      <p>Tedd kosárba</p>
+  </div>
+</div>
+<!-- three  -->
+<div class="col-lg-4 mt-2">
+  <div class="stepBox">
+      <h1>3</h1>
+      <p>És már tiéd is az álom utazás!</p>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<!-- ticketbox  -->
+<div class="container mt-4 mb-4">
+<!-- Add ticket -->
+  <button mat-button  class="viewmorebtn" (click)="openTicketDialog()">Jegy hozzáadása</button>
+  <h1 class="text-center" appMyDirective>Vásárlók <span class="highlight">kedvenc járatai</span></h1>
+  <!-- <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-6 mt-3" *ngFor="let tc of ticketData;index as i">
+          <div class="ticketbox" *ngIf="i<=3">
+              <img src="{{tc.imageUrl}}" />
+              <h1>{{tc.name}}</h1>
+              <p>{{tc.price }}</p>
+          </div>
+      </div>
+
+
+  </div> -->
+
+  <div class="row">
+
+    <div class="col-md-4">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Search" (keyup)="search()" />
+
+      <ul>
+        <li *ngFor="let result of searchResults">{{ result.name }}</li>
+      </ul>
+    </div>
+    <div class="col-md-12">
+
+
+      <table class="table responsive">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Név</th>
+            <th scope="col">Ár</th>
+            <th scope="col">Cél</th>
+
+            <th scope="col">Mennyiség</th>
+              <th scope="col">Tevékenység</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of ticketData | paginate: { itemsPerPage: 5, currentPage: p }" >
+           <td>#</td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.destination}}</td>
+
+            <td>{{item.quantity}}</td>
+            <td style="    display: flex; gap: 5px;">
+              <!-- <button class="btn btn-primary" (click)="ticketdetail(item)">detail view</button>
+       -->
+              <button class="btn btn-primary"  (click)="editTicket(item)" >Szerkesztés</button>
+              <button class="btn btn-danger" (click)="deleteTicket(item.id)">Törlés</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+  <!-- <a routerLink="/gallery" class="viewmorebtn">További jegyek <i class="bi bi-arrow-right"></i></a> -->
+</div>

@@ -1,0 +1,20 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-lg-6" *ngIf="ticketpData">
+      <a routerLink="/gallery" class="btn btn-sm btn-dark mb-3 ">Vissza</a>
+      <img src="{{ticketpData.ticketImg}}" width="100%"/>
+      <h1 class="mt-3">{{ticketpData.ticketName}}</h1>
+      <p>{{ticketpData.ticketPrice | currency :'HUF'}}</p>
+    </div>
+
+    <div class="col-lg-6 col-12">
+      <h1>Írd be a részleteket</h1>
+      <form>
+        <input type="text" class="form-control" placeholder="Írd be a neved" />
+        <input type="text" class="form-control" placeholder="Írd be a telefonszámod" />
+        <textarea class="form-control" placeholder="Írd be a címed"></textarea>
+        <button class="btn btn-md btn-dark mt-3">Rendelés leadása</button>
+      </form>
+    </div>
+  </div>
+</div>
